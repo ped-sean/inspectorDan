@@ -1,23 +1,10 @@
 <!DOCTYPE html>
-<!--
-  ============================================================================
-  CONTRACTOR REFERRALS — STUB PAGE (intentionally not fully built).
-
-  Another developer will fill in the referrals list. Suggested approach:
-    - Replace the .referrals-stub block in <main> with a .cards grid.
-    - One card per referral: trade/category, business name, phone, and an
-      optional outbound link (target="_blank" rel="noopener").
-    - Source data: the project archive's Contractor_Referrals.htm, or whatever
-      list Dan provides.
-  Keep the header/footer in sync with the other pages if nav items change.
-  ============================================================================
--->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contractor Referrals — InspectorDan</title>
-    <meta name="description" content="Trusted contractor referrals from InspectorDan LLC — vetted tradespeople for the Chicago area.">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Sora:wght@600;700&display=swap">
@@ -26,6 +13,7 @@
 <body>
     <a href="#main" class="skip-link">Skip to content</a>
 
+    {#- The header/nav lives here ONLY. Edit once; every page updates. -#}
     <header class="site-header">
         <div class="wrap header-inner">
             <a href="index.html" class="brand" aria-label="InspectorDan home">
@@ -35,38 +23,28 @@
                 <span></span><span></span><span></span>
             </button>
             <nav id="nav" class="nav">
-                <a href="index.html">Home</a>
-                <a href="services.html">Services</a>
-                <a href="reviews.html">Reviews</a>
-                <a href="blog.html">Blog</a>
-                <a href="contact.html">Contact</a>
-                <a href="referrals.html" class="active">Referrals</a>
+                {%- set navItems = [
+                    { url: "index.html", label: "Home", key: "home" },
+                    { url: "services.html", label: "Services", key: "services" },
+                    { url: "reviews.html", label: "Reviews", key: "reviews" },
+                    { url: "blog.html", label: "Blog", key: "blog" },
+                    { url: "contact.html", label: "Contact", key: "contact" },
+                    { url: "referrals.html", label: "Referrals", key: "referrals" }
+                ] -%}
+                {%- for item in navItems %}
+                <a href="{{ item.url }}"{% if active == item.key %} class="active"{% endif %}>{{ item.label }}</a>
+                {%- endfor %}
+                <!-- EXTERNAL LINK (booking) — HomeGauge ScheduleNow. See INTEGRATION-NOTES.md #1. -->
                 <a href="https://schedulenow.homegauge.com/11ecebf8-c830-7b99-af04-77c0e9971dab/schedule" class="nav-cta" data-external="schedule" target="_blank" rel="noopener">Book Now</a>
             </nav>
         </div>
     </header>
 
     <main id="main">
-        <section class="page-hero">
-            <div class="wrap">
-                <p class="eyebrow">Referrals</p>
-                <h1>Trusted contractor referrals</h1>
-                <p>Vetted tradespeople Dan recommends after years of inspections.</p>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="wrap">
-                <!-- BUILD HERE: replace this note with the referral cards/list (use the .cards grid). -->
-                <div class="referrals-stub">
-                    <p><strong>This page is a work in progress.</strong> The full referrals list is
-                    coming soon. In the meantime, <a href="tel:+17737716466">give Dan a call</a> and
-                    he'll point you to a trusted contractor for the job.</p>
-                </div>
-            </div>
-        </section>
+        {{ content | safe }}
     </main>
 
+    {#- The footer lives here ONLY. -#}
     <footer class="site-footer">
         <div class="wrap footer-inner">
             <div>
@@ -80,9 +58,11 @@
                 <a href="reviews.html">Reviews</a>
                 <a href="blog.html">Blog</a>
                 <a href="referrals.html">Referrals</a>
+                <!-- EXTERNAL DOCUMENT (Google Drive PDF) — see INTEGRATION-NOTES.md #4. -->
                 <a href="https://drive.google.com/file/d/1SZl1VHj6Nne5dlst_AArIiMVNMm-kAN8/view?usp=sharing" data-external="document" target="_blank" rel="noopener">Consumer-Contractor Cautions</a>
             </nav>
             <div class="footer-contact">
+                <!-- EXTERNAL LINK (booking) — HomeGauge ScheduleNow. See INTEGRATION-NOTES.md #1. -->
                 <a href="https://schedulenow.homegauge.com/11ecebf8-c830-7b99-af04-77c0e9971dab/schedule" data-external="schedule" target="_blank" rel="noopener">Book an Inspection</a>
                 <a href="tel:+17737716466">773-771-6466</a>
                 <a href="mailto:inspectordan@gmail.com">inspectordan@gmail.com</a>
