@@ -54,7 +54,6 @@ if (carousel) {
     let current = 0;
     let timer;
 
-    // Build one dot per slide
     const dots = slides.map((_, n) => {
         const dot = document.createElement('button');
         dot.setAttribute('role', 'tab');
@@ -88,3 +87,23 @@ if (carousel) {
     go(0);
     start();
 }
+
+// Referral accordion
+document.querySelectorAll('.ref-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const panel = btn.nextElementSibling;
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+        // close all
+        document.querySelectorAll('.ref-btn').forEach(b => {
+            b.setAttribute('aria-expanded', 'false');
+            b.nextElementSibling.classList.remove('ref-panel--open');
+        });
+
+        // open clicked if it was closed
+        if (!isOpen) {
+            btn.setAttribute('aria-expanded', 'true');
+            panel.classList.add('ref-panel--open');
+        }
+    });
+});
