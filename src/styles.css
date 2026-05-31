@@ -451,6 +451,31 @@ img { display: block; max-width: 100%; }
 }
 .quotes-dots button.is-active { background: var(--orange); }
 
+/* Testimonial grid (non-carousel layout, e.g. homepage) */
+.quote-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 72rem;
+    margin: 0 auto;
+}
+.quote-grid .quote {
+    grid-area: auto;
+    text-align: left;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+}
+.quote-grid .quote blockquote {
+    font-size: 1rem;
+    line-height: 1.55;
+    font-weight: 500;
+}
+@media (max-width: 760px) {
+    .quote-grid { grid-template-columns: 1fr; }
+}
+
 /* Blog */
 .posts {
     display: grid;

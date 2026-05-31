@@ -26,10 +26,8 @@
                 {%- set navItems = [
                     { url: "index.html", label: "Home", key: "home" },
                     { url: "services.html", label: "Services", key: "services" },
-                    { url: "reviews.html", label: "Reviews", key: "reviews" },
-                    { url: "blog.html", label: "Blog", key: "blog" },
-                    { url: "contact.html", label: "Contact", key: "contact" },
-                    { url: "referrals.html", label: "Referrals", key: "referrals" }
+                    { url: "referrals.html", label: "Referrals", key: "referrals" },
+                    { url: "blog.html", label: "Blog", key: "blog" }
                 ] -%}
                 {%- for item in navItems %}
                 <a href="{{ item.url }}"{% if active == item.key %} class="active"{% endif %}>{{ item.label }}</a>
@@ -55,9 +53,8 @@
             </div>
             <nav class="footer-links" aria-label="Footer">
                 <a href="services.html">Services</a>
-                <a href="reviews.html">Reviews</a>
-                <a href="blog.html">Blog</a>
                 <a href="referrals.html">Referrals</a>
+                <a href="blog.html">Blog</a>
                 <!-- EXTERNAL DOCUMENT (Google Drive PDF) — see INTEGRATION-NOTES.md #4. -->
                 <a href="https://drive.google.com/file/d/1SZl1VHj6Nne5dlst_AArIiMVNMm-kAN8/view?usp=sharing" data-external="document" target="_blank" rel="noopener">Consumer-Contractor Cautions</a>
             </nav>
