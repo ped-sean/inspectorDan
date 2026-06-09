@@ -399,21 +399,11 @@ img { display: block; max-width: 100%; }
 }
 .section-dark .referrals-stub { color: rgba(255, 255, 255, 0.72); }
 
-/* Testimonial carousel (on dark band) */
-.quotes {
-    position: relative;
-    max-width: 50rem;
-    margin: 0 auto;
-}
-.quotes-track { list-style: none; display: grid; }
+/* Testimonials (used by homepage grid + standalone figures on services) */
 .quote {
-    grid-area: 1 / 1; /* stack slides so height matches the tallest one */
     text-align: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.35s ease;
 }
-.quote.is-active { opacity: 1; visibility: visible; }
+.quote-single { max-width: 50rem; margin: 0 auto; }
 .quote blockquote {
     font-size: clamp(1.1rem, 0.95rem + 0.8vw, 1.4rem);
     line-height: 1.5;
@@ -427,41 +417,6 @@ img { display: block; max-width: 100%; }
     font-size: 0.9rem;
 }
 .quote figcaption strong { color: #fff; }
-
-.quotes-controls {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-.quotes-controls button {
-    width: 2.25rem;
-    height: 2.25rem;
-    display: grid;
-    place-items: center;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    background: none;
-    color: #fff;
-    font-size: 1.2rem;
-    line-height: 1;
-    cursor: pointer;
-    transition: background 0.15s, border-color 0.15s, color 0.15s;
-}
-.quotes-controls button:hover { background: var(--orange); border-color: var(--orange); color: #fff; }
-.quotes-dots { display: flex; gap: 0.5rem; }
-.quotes-dots button {
-    width: 9px;
-    height: 9px;
-    padding: 0;
-    border-radius: 999px;
-    border: none;
-    background: rgba(255, 255, 255, 0.25);
-    cursor: pointer;
-    transition: background 0.15s;
-}
-.quotes-dots button.is-active { background: var(--orange); }
 
 /* Testimonial grid (non-carousel layout, e.g. homepage) */
 .quote-grid {

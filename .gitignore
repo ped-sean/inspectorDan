@@ -1,2 +1,10 @@
 node_modules/
 _site/
+
+# Dev server output
+*.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
